@@ -7,4 +7,9 @@ export default class UserDetails {
     
     @Column()
     lastName: string;
+
+    public constructor(firstName:string, lastName:string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

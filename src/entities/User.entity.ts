@@ -1,5 +1,6 @@
-import { Column, Entity, ObjectId, ObjectIdColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, ObjectId, ObjectIdColumn } from "typeorm";
 import UserDetails from "./embed/UserDetails.entity";
+import { hashSync } from "bcryptjs";
 
 @Entity()
 export default class User {
@@ -14,6 +15,10 @@ export default class User {
     password: string;
 
     @Column(_ => UserDetails)
-    details: UserDetails
-    
+    details: UserDetails;
+
+    @BeforeInsert()
+    cryptPassword() {
+        this.password = hashSync(this.password);
+    }
 }
