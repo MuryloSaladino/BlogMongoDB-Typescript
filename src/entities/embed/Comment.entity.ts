@@ -2,9 +2,6 @@ import { Column, CreateDateColumn, ObjectId, ObjectIdColumn } from "typeorm";
 
 export default class Comment {
 
-    @ObjectIdColumn()
-    id: ObjectId;
-
     @CreateDateColumn()
     createdAt: string;
 
