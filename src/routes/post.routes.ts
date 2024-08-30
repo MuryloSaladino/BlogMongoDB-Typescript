@@ -3,7 +3,7 @@ import { createPostController, getPostsController } from "../controllers/post.co
 
 const postRoutes = Router();
 
-postRoutes.post("/posts", createPostController);
-postRoutes.get("/posts", getPostsController)
+postRoutes.post("", createPostController);
+postRoutes.get("", getPostsController)
 
 export default postRoutes;

@@ -11,9 +11,9 @@ import { handleError } from "./middlewares/errorHandler.middlewares";
 const app = express();
 app.use(express.json())
 
-app.use(postRoutes)
-app.use(userRoutes)
-app.use(loginRouter)
+app.use("/posts", postRoutes)
+app.use("/users", userRoutes)
+app.use("/login", loginRouter)
 
 app.use(handleError)
 

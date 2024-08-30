@@ -15,4 +15,7 @@ export default class Post {
 
     @CreateDateColumn()
     createdAt: string;
+
+    @Column({ unique: true })
+    likes: ObjectId[];
 }
