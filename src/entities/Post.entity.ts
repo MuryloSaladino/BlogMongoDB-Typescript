@@ -10,8 +10,8 @@ export default class Post {
     @Column()
     content: string;
 
-    @ObjectIdColumn({ generated: false })
-    creatorId: ObjectId;
+    @Column()
+    creator: string;
 
     @Column(_ => Comment)
     comments: Comment[];
