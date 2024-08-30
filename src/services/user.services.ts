@@ -7,7 +7,7 @@ import { AppError } from "../errors";
 
 export const createUser = async (payload:TUserCreation) => {
 
-    const repo:Repository<User> = AppDataSource.getRepository(User);
+    const repo:Repository<User> = AppDataSource.getMongoRepository(User);
 
     const foundUser = await repo.findOne({ where: { username: payload.username } })
     if(foundUser) throw new AppError("Username not available")
@@ -21,7 +21,7 @@ export const createUser = async (payload:TUserCreation) => {
 
 export const readUsers = async () => {
 
-    const repo:Repository<User> = AppDataSource.getRepository(User);
+    const repo:Repository<User> = AppDataSource.getMongoRepository(User);
 
     return await repo.find();
 }

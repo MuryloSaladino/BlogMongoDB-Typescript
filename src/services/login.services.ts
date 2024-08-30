@@ -12,7 +12,7 @@ export type TLoginPayload = {
 
 export const login = async (payload:TLoginPayload) => {
 
-    const repo:Repository<User> = AppDataSource.getRepository(User);
+    const repo:Repository<User> = AppDataSource.getMongoRepository(User);
     const user:User|null = await repo.findOneBy({ username: payload.username });
 
     if(!user) throw new AppError("User not found", 404);

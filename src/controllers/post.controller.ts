@@ -3,7 +3,7 @@ import { createPost, retrievePosts } from "../services/post.services";
 
 export const createPostController = async (req:Request, res:Response) => {
 
-    const creation = await createPost(req.body);
+    const creation = await createPost(req.params.idUser, req.body);
 
     res.status(201).json(creation);
 }

@@ -10,12 +10,15 @@ export default class Post {
     @Column()
     content: string;
 
+    @ObjectIdColumn({ generated: false })
+    creatorId: ObjectId;
+
     @Column(_ => Comment)
     comments: Comment[];
 
-    @CreateDateColumn()
-    createdAt: string;
-
     @Column({ unique: true })
     likes: ObjectId[];
+
+    @CreateDateColumn()
+    createdAt: string;
 }

@@ -3,7 +3,7 @@ import { createPostController, getPostsController } from "../controllers/post.co
 
 const postRoutes = Router();
 
-postRoutes.post("", createPostController);
+postRoutes.post("/:idUser", createPostController);
 postRoutes.get("", getPostsController)
 
 export default postRoutes;
